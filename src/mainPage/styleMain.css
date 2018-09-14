@@ -91,7 +91,7 @@ th
     padding-top:5px;
     padding-bottom:4px;
     background-color:#A7C942;
-    color:#ffffff;
+    color:black;
 }
 
 td
@@ -102,8 +102,8 @@ td
 
 .AddButton{
     border:1px solid #98bf21;
-    width: 545px;
-    background-color:#A7C943;
+    width: 547px;
+    background-color:#A7C940;
 }
 
 

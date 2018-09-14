@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 import {Link} from "react-router-dom";
-import '../style.css';
+import '../styleMain.css';
 
 export  default  class View extends Component{
     constructor(props) {
@@ -11,6 +11,9 @@ export  default  class View extends Component{
     render(){
         return(
             <div>
+                <div>
+                    <a href="" style={{marginLeft:`90%`}}>Login</a>
+                </div>
 
                 <div id="tab">
                     <ul className="tabs">
@@ -18,13 +21,13 @@ export  default  class View extends Component{
                             <input type="radio" name="tabs" id="tab1" checked/>
                             <label htmlFor="tab1">To dos</label>
                             <div id="tab-content1" className="tab-content" >
-                                <div>
+                                <div style={{margin:20}}>
                                     <input type="text"/>
-                                    <a href=""  style={{margin:20}}>Advanced</a>
+                                    <a href="" >Advanced</a>
                                 </div>
                                 <table>
                                     <tr>
-                                        <th>Action</th>
+                                        <th style={{margin:10}}>Action</th>
                                         <th>Tags</th>
                                         <th>Due Date</th>
                                         <th>Status</th>
@@ -39,7 +42,9 @@ export  default  class View extends Component{
                                             <td>{item.DueDate}</td>
                                             <td>{item.Status}</td>
                                             <td>
+                                                <Link to="/details">
                                                 <a href={""} style={{margin:10}}>Details</a>
+                                                </Link>
                                                 <a href={""} style={{margin:10}}>Delete</a>
                                             </td>
                                         </tr>
@@ -48,7 +53,7 @@ export  default  class View extends Component{
                                 </table>
                                 <div>
                                     <Link to="/details">
-                                    <button class="AddButton">+</button>
+                                    <button className="AddButton">+</button>
                                     </Link>
                                 </div>
                             </div>
