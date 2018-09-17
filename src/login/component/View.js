@@ -46,39 +46,3 @@ export  default  class View extends Component {
     }
 
 }
-
-
-
-//
-// const options = [
-//     { value: 'chocolate', label: 'Chocolate' },
-//     { value: 'strawberry', label: 'Strawberry' },
-//     { value: 'vanilla', label: 'Vanilla' }
-// ];
-//
-// export  default  class View extends Component {
-//     constructor(props) {
-//         super(props);
-//         this.state = {
-//             selectedOption: null,
-//         }
-//     }
-//     handleChange = (selectedOption) => {
-//         this.setState({ selectedOption });
-//         console.log(`Option selected:`, selectedOption);
-//     }
-//
-//
-//     render() {
-//         const { selectedOption } = this.state;
-//         return(
-//             <div>
-//                 <Select
-//                     value={selectedOption}
-//                     onChange={this.handleChange}
-//                     options={options}
-//                 />
-//             </div>
-//         )
-//     }
-// }
