@@ -1,3 +1,22 @@
+* {
+    margin: 0;
+    padding: 0;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+body {
+    padding: 20px;
+    text-align: left;
+    font-family: Lato;
+    color: #000;
+}
+
+h2{
+    text-align: center;
+    margin: auto;
+}
 .mytd{
     background-color: white;
     border-color: white;
@@ -12,6 +31,8 @@
     width: 100px;
     background-color:beige;
     font-weight: bold;
+    margin-left: 40%;
+    margin-bottom: 3%;
 }
 
 .SaveButton{
@@ -19,6 +40,7 @@
     width: 100px;
     background-color:#A7C940;
     font-weight: bold;
+    margin-left: 20px;
 }
 
 .mytitle{

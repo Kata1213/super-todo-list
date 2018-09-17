@@ -16,60 +16,45 @@ const colourOptions = [
 export  default  class View extends Component {
     constructor(props) {
         super(props);
-        {console.log(this.props)}
-        const product=this.props.items.find(x=>x.id==this.props.match.params.id);
-        console.log(product);
-        this.state={
-            id:product.id,
-            actionName: product.actionName,
-            Tags:product.Tags,
-            DueDate:product.DueDate,
-            Status:product.Status
-        }
     }
 
 
 
     render() {
-        const product=this.props.items.find(x=>x.id==this.props.match.params.id);
-        console.log(product);
-        const {items, onUpdateItem, closeModal} = this.props;
+        const {items, onAddItem, closeModal} = this.props;
         return(
             <div>
                 <div className="static-modal">
                     <Modal.Dialog>
                         <Modal.Header>
-                            <Modal.Title className="mytitle">Details</Modal.Title>
+                            <Modal.Title className="mytitle">Add New Todo List</Modal.Title>
                         </Modal.Header>
 
                         <Modal.Body>
                                 <table>
                                     <tr onChange={(event) => this.ChangeAction(event)}>
-                                        <td className="mytd">Action:</td>
-                                        <td className="mytd"><input type="text" defaultValue={`${product.actionName}`}/></td>
+                                        <td className="mytd" id="action">Action:</td>
+                                        <td className="mytd"><input type="text" /></td>
                                     </tr>
                                     <tr onChange={(event) => this.ChangeDate(event)}>
                                         <td className="mytd"> Due Date:</td>
-                                        <td className="mytd"><input type="date" defaultValue={`${product.DueDate}`}/></td>
+                                        <td className="mytd"><input type="date" /></td>
                                     </tr>
                                     <tr onChange={(event) => this.ChangeStatus(event)}>
                                         <td className="mytd">Status:</td>
                                         <td className="mytd" >
                                             <select>
-                                            <option value="InProcess" selected= {product.Status === "InProcess" ? "selected" : ""}>InProcess</option>
-                                            <option value="Blocked" selected={product.Status === "Blocked" ? "selected" : ""}>Blocked</option>
-                                            <option value="Finished" selected={product.Status === "Finished" ? "selected" : ""}>Finished</option>
-                                        </select></td>
+                                            <option value="InProcess">InProcess</option>
+                                            <option value="Blocked">Blocked</option>
+                                            <option value="Finished">Finished</option>
+                                            </select>
+                                        </td>
                                     </tr>
+
                                     <tr>
                                         <td className="mytd">Tags:</td>
                                         <td className="mytage"><div>
-
-
                                             <Select
-                                                defaultValue={product.Tags.map(tag=>{
-                                                    return colourOptions.find(x=>x.value==tag)
-                                                })}
                                                 isMulti
                                                 name="colors"
                                                 options={colourOptions}
@@ -90,9 +75,10 @@ export  default  class View extends Component {
                             </Link>
                             <Link to="/">
                             <Button className="SaveButton" onClick={() => {
-                                onUpdateItem(this.getNewItem(items));
+                                onAddItem(this.getNewItem(items));
                             }}>OK</Button>
                             </Link>
+
                         </Modal.Footer>
                     </Modal.Dialog>
                 </div>
@@ -103,8 +89,8 @@ export  default  class View extends Component {
     }
 
     getNewItem(items) {
-        // console.log("what???"+product.id);
-        return {id:this.state.id,actionName:this.state.actionName,Tags:this.state.Tags,DueDate:this.state.DueDate,
+        const Id = items.length+1;
+        return {id:Id, actionName:this.state.actionName,Tags:this.state.Tags,DueDate:this.state.DueDate,
             Status:this.state.Status}
     }
 
@@ -123,6 +109,10 @@ export  default  class View extends Component {
 
     ChangeStatus(event){
         this.setState({Status: event.target.value});
+    }
+    ChangeTags(event){
+        console.log("tags!!!!!"+event.target.value);
+        this.setState({Tags: event.target.options});
     }
 
     handleChange = (selectedOption) => {

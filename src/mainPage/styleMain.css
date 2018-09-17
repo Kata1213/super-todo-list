@@ -14,7 +14,7 @@ body {
 }
 
 .tabs {
-    width: 600px;
+    width: 900px;
     float: none;
     list-style: none;
     position: relative;
@@ -102,8 +102,20 @@ td
 
 .AddButton{
     border:1px solid #98bf21;
-    width: 547px;
+    width: 750px;
     background-color:#A7C940;
+}
+
+#chart{
+    width: 50%;
+    margin: auto;
+    height: 300px;
+}
+
+.advancedPage{
+    border: 1px solid;
+    margin-top: 30px;
+    margin-bottom: 30px;
 }
 
 
